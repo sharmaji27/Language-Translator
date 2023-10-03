@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+
+    body {
+        background-image: url('https://cutewallpaper.org/21/1920-x-1080-gif/1920x1080-Wallpapercartoon-Wallpapers-Driverlayer-Search-.gif');
+        background-size: cover;
+        font-family: sans-serif;
+        margin-top: 40px;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+    }
+
+    table {
+        border: 1px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 86%;
+        margin: auto;
+    }
+
+    td,
+    th {
+        border: 1px solid black !important;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Language Translator</title>
+</head>
+
+<body>
+
+    <div class='mt-1 text-center'>
+        <h1 style="width: auto;margin: auto;color: white;padding: 11px;font-size: 44px;">Language Translator</h1>
+    </div>
+
+    <div class='mt-3 text-center'>
+        <h3 style="font-size: 22px;color:beige;">{{ datetoday2 }} | <span id="clock"></span></h3>
+    </div>
+
+    {% if mess%}
+    <p class="text-center" style="color: red;font-size: 20px;">{{ mess }}</p>
+    {% endif %}
+
+    <div class="row text-center" style="padding: 20px;margin: 20px;">
+
+        <div class="col"
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;min-height: 400px;">
+            <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">Enter the
+                Text to Translate</h2>
+            <form id="inputtextform" action='/translate' method="POST" enctype="multipart/form-data">
+                <textarea type="text" id="sourcetext" name='sourcetext' style="font-size: 20px;height:250px;width:90%"
+                    required>
+                </textarea>
+
+                <br>
+
+                <h4>Select the language</h4>
+                <select name="languages" id="languages">
+                    <option value="af">af</option>
+                    <option value="ak">ak</option>
+                    <option value="am">am</option>
+                    <option value="ar">ar</option>
+                    <option value="as">as</option>
+                    <option value="ay">ay</option>
+                    <option value="az">az</option>
+                    <option value="be">be</option>
+                    <option value="bg">bg</option>
+                    <option value="bho">bho</option>
+                    <option value="bm">bm</option>
+                    <option value="bn">bn</option>
+                    <option value="bs">bs</option>
+                    <option value="ca">ca</option>
+                    <option value="ceb">ceb</option>
+                    <option value="ckb">ckb</option>
+                    <option value="co">co</option>
+                    <option value="cs">cs</option>
+                    <option value="cy">cy</option>
+                    <option value="da">da</option>
+                    <option value="de">de</option>
+                    <option value="doi">doi</option>
+                    <option value="dv">dv</option>
+                    <option value="ee">ee</option>
+                    <option value="el">el</option>
+                    <option value="en">en</option>
+                    <option value="eo">eo</option>
+                    <option value="es">es</option>
+                    <option value="et">et</option>
+                    <option value="eu">eu</option>
+                    <option value="fa">fa</option>
+                    <option value="fi">fi</option>
+                    <option value="fr">fr</option>
+                    <option value="fy">fy</option>
+                    <option value="ga">ga</option>
+                    <option value="gd">gd</option>
+                    <option value="gl">gl</option>
+                    <option value="gn">gn</option>
+                    <option value="gom">gom</option>
+                    <option value="gu">gu</option>
+                    <option value="ha">ha</option>
+                    <option value="haw">haw</option>
+                    <option value="he">he</option>
+                    <option value="hi" selected>hi</option>
+                    <option value="hmn">hmn</option>
+                    <option value="hr">hr</option>
+                    <option value="ht">ht</option>
+                    <option value="hu">hu</option>
+                    <option value="hy">hy</option>
+                    <option value="id">id</option>
+                    <option value="ig">ig</option>
+                    <option value="ilo">ilo</option>
+                    <option value="is">is</option>
+                    <option value="it">it</option>
+                    <option value="iw">iw</option>
+                    <option value="ja">ja</option>
+                    <option value="jv">jv</option>
+                    <option value="jw">jw</option>
+                    <option value="ka">ka</option>
+                    <option value="kk">kk</option>
+                    <option value="km">km</option>
+                    <option value="kn">kn</option>
+                    <option value="ko">ko</option>
+                    <option value="kri">kri</option>
+                    <option value="ku">ku</option>
+                    <option value="ky">ky</option>
+                    <option value="la">la</option>
+                    <option value="lb">lb</option>
+                    <option value="lg">lg</option>
+                    <option value="ln">ln</option>
+                    <option value="lo">lo</option>
+                    <option value="lt">lt</option>
+                    <option value="lus">lus</option>
+                    <option value="lv">lv</option>
+                    <option value="mai">mai</option>
+                    <option value="mg">mg</option>
+                    <option value="mi">mi</option>
+                    <option value="mk">mk</option>
+                    <option value="ml">ml</option>
+                    <option value="mn">mn</option>
+                    <option value="mni-Mtei">mni-Mtei</option>
+                    <option value="mr">mr</option>
+                    <option value="ms">ms</option>
+                    <option value="mt">mt</option>
+                    <option value="my">my</option>
+                    <option value="ne">ne</option>
+                    <option value="nl">nl</option>
+                    <option value="no">no</option>
+                    <option value="nso">nso</option>
+                    <option value="ny">ny</option>
+                    <option value="om">om</option>
+                    <option value="or">or</option>
+                    <option value="pa">pa</option>
+                    <option value="pl">pl</option>
+                    <option value="ps">ps</option>
+                    <option value="pt">pt</option>
+                    <option value="qu">qu</option>
+                    <option value="ro">ro</option>
+                    <option value="ru">ru</option>
+                    <option value="rw">rw</option>
+                    <option value="sa">sa</option>
+                    <option value="sd">sd</option>
+                    <option value="si">si</option>
+                    <option value="sk">sk</option>
+                    <option value="sl">sl</option>
+                    <option value="sm">sm</option>
+                    <option value="sn">sn</option>
+                    <option value="so">so</option>
+                    <option value="sq">sq</option>
+                    <option value="sr">sr</option>
+                    <option value="st">st</option>
+                    <option value="su">su</option>
+                    <option value="sv">sv</option>
+                    <option value="sw">sw</option>
+                    <option value="ta">ta</option>
+                    <option value="te">te</option>
+                    <option value="tg">tg</option>
+                    <option value="th">th</option>
+                    <option value="ti">ti</option>
+                    <option value="tk">tk</option>
+                    <option value="tl">tl</option>
+                    <option value="tr">tr</option>
+                    <option value="ts">ts</option>
+                    <option value="tt">tt</option>
+                    <option value="ug">ug</option>
+                    <option value="uk">uk</option>
+                    <option value="ur">ur</option>
+                    <option value="uz">uz</option>
+                    <option value="vi">vi</option>
+                    <option value="xh">xh</option>
+                    <option value="yi">yi</option>
+                    <option value="yo">yo</option>
+                    <option value="zh">zh</option>
+                    <option value="zh-CN">zh-CN</option>
+                    <option value="zh-TW">zh-TW</option>
+                    <option value="zu">zu</option>
+
+                </select>
+                <br>
+                <button form="inputtextform" type="submit" class="btn btn-primary"
+                    style="font-size: 20px;margin: 10px;width: 50%;">Translate</button>
+        </div>
+        </form>
+
+
+        <div class="col"
+            style="border-radius: 20px;padding: 0px;background-color:rgb(211,211,211,0.5);margin:0px 10px 10px 10px;height: 448px;">
+            <h2 style="border-radius: 20px 20px 0px 0px;background-color: #0b4c61;color: white;padding: 10px;">
+                Translated
+                Text</h2>
+            <textarea style="height: 250px;width: 90%;font-size: 20px;">
+                {{res}}
+            </textarea>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var clockElement = document.getElementById('clock');
+
+        function clock() {
+            clockElement.textContent = new Date().toString().slice(15, 24);
+        }
+
+        setInterval(clock, 1000);
+    </script>
+
+</body>
+
+</html>
